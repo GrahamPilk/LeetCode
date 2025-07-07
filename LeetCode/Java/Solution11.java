@@ -1,3 +1,4 @@
+package LeetCode.Java;
 public class Solution11 {
     //O(n)
     public int maxArea(int[] height) {

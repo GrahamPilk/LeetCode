@@ -1,3 +1,4 @@
+package LeetCode.Java;
 class Solution3330 {
     public static int possibleStringCount(String word) {
         int r = 1;
