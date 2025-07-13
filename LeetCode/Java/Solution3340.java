@@ -1,5 +1,4 @@
 package LeetCode.Java;
-import java.util.*;
 
 class Solution3340 {
     public boolean findGap(int[] gaps, int time, int index, int n) {
