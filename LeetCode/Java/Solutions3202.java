@@ -48,6 +48,17 @@ public class Solutions3202 {
  * - Think of a map like a dictionary or phone book, you look up a key (name) and get back a value (phone number).
  * - Dynamic programming is a fancy term for "remember what you have calculated before so you dont have to do it again" Instead of trying every possible combination, the code remembers: "The best I can do with remainder 3 is length 4" and builds on that. 
  * - The final answer (maxLen) is the longest sequence found that adds up to any multiple of k. 
+ * - This uses a nested HashMap (or a 2D HashMap) where each value is itself another HashMap - like a table with rows and columns, but implemented using key-value pairs instead of arrays. 
+ * 
+ * Time Complexity O(n * k)
+ * - We iterate through n numbers
+ * - For each number, we iterate through k possible targets
+ * 
+ * Space Complexity O(k^2)
+ * - We have k outer map entries (one for each target remainder)
+ * - Each inner map can have at most k entries (one for each possible remainder)
+ * - So max storage is k * k = K^2
  * 
  * 
+ * Author: Graham Pilkington (Miami uni 2027) graham.a.pilkington@gmail.com
  */
