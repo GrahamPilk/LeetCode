@@ -1,46 +1,72 @@
 package LeetCode.Java;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class Solution2163 {
     public static long minimumDifference(int[] nums) {
         int n = nums.length / 3;
-        ArrayList<Integer> diffs = new ArrayList<>();
-        // Helper to generate all combinations
-        generateCombinations(nums, n, 0, new ArrayList<>(), diffs);
-        return Collections.min(diffs);
-    }
+        int len = nums.length;
+        long[] leftMins = new long[len];
+        long[] rightMaxs = new long[len];
+        long leftSum = 0, rightSum = 0;
 
-    // Helper function to generate all combinations of removing n elements
-    private static void generateCombinations(int[] nums, int n, int start, ArrayList<Integer> removedIdx, ArrayList<Integer> diffs) {
-        if (removedIdx.size() == n) {
-            // Build numsTwo by skipping removedIdx
-            ArrayList<Integer> numsTwoList = new ArrayList<>();
-            for (int i = 0; i < nums.length; i++) {
-                if (!removedIdx.contains(i)) {
-                    numsTwoList.add(nums[i]);
-                }
+        PriorityQueue<Integer> leftHeap = new PriorityQueue<>((a,b) -> b - a);
+        PriorityQueue<Integer> rightHeap = new PriorityQueue<>();
+        //left
+        for(int i =0; i < n; i++) {
+            leftHeap.offer(nums[i]);
+            leftSum += nums[i];
+        }
+        leftMins[n-1] = leftSum;
+        for(int i = n; i < nums.length - n; i++) {
+            int x = nums[i];
+            if (x < leftHeap.peek()) {
+                leftSum += x - leftHeap.poll();
+                leftHeap.offer(x);
             }
-            int[] numsTwo = numsTwoList.stream().mapToInt(Integer::intValue).toArray();
-            // Split and sum
-            int first = 0, second = 0;
-            for (int j = 0; j < numsTwo.length / 2; j++) first += numsTwo[j];
-            for (int k = numsTwo.length / 2; k < numsTwo.length; k++) second += numsTwo[k];
-            diffs.add(first - second);
-            return;
+            leftMins[i] = leftSum;
         }
-        for (int i = start; i < nums.length; i++) {
-            removedIdx.add(i);
-            generateCombinations(nums, n, i + 1, removedIdx, diffs);
-            removedIdx.remove(removedIdx.size() - 1);
+        //right
+        for(int i = nums.length-1; i >= nums.length-n; i--) {
+            rightHeap.offer(nums[i]);
+            rightSum += nums[i];
         }
-    }
+        rightMaxs[nums.length-n] = rightSum;
+        for(int i = nums.length-n-1; i >= n-1; i--) {
+            if(nums[i] > rightHeap.peek()) {
+                rightSum += nums[i] - rightHeap.poll();
+                rightHeap.offer(nums[i]);
+            }
+            rightMaxs[i] = rightSum;
+        }
 
+
+
+
+        long minDiff = Long.MAX_VALUE;
+        for (int i = n-1; i < nums.length-n;i++) {
+            minDiff = Math.min(minDiff, leftMins[i] - rightMaxs[i+1]);
+        }
+        return minDiff;
+    }
 
     public static void main (String[] args) {
         System.out.println("7,9,5,8,1,3: " + minimumDifference(new int[]{7,9,5,8,1,3}));
     }
 }
+
+/*
+ * First Commit: O(n log n)
+ * - Works but so inifficient because it goes through and adds every possible numsTwo to an ArrayList using recursion. 
+ * - Basically creates an arraylist of every possible NumsTwo combination, finds the first and second part. finds the diffs and adds it to an arrayList of diffs then finds min of that. 
+ * 
+ * What I need to do:
+ * - Make it more efficient by using a minHeap and maxheap
+ * - A minHeap is a complete binary tree where the children nodes have a higher value than the parent nodes. 
+ * - A MaxHeap is a binary tree where the parent nodes are higher value than the children. 
+ * - We use a Priority Queue which basically stores these heaps. We can use the poll method to get first element of queue. (the one with the highest priority or the head)
+ * - Offer returns a boolean value, true if successfuly inserted. It adds a specified element into the priority queue. When it is inserted, the PriorityQueue internally reorganizes itelse to maintian the priority order based on the elements natural ordering
+ * - We use peek to retrieve the head of the queue in PriorityQueue. 
+ */
 
 
