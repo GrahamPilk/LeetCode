@@ -1,7 +1,7 @@
 package Learning;
 import java.util.HashSet;
 
-public class HashSetExample {
+public class Hashset {
     public static void main(String[] args) {
         /*
          * A HashSet is a part of the Java Collections Framework and implements the Set interface. It is a colection that stores unique elements in an unordered manner. This means: 
@@ -12,7 +12,7 @@ public class HashSetExample {
          * A HashSet internally uses a hash table to store its elements. When you add an element, it calculates a "Hash Code" for that element (a numerical representation).
          * THis hash code helps determine where the element should be stored in the internal data structure, allowing for very efficient oerations like adding, checking for existince. and removing elements. (O(1))
          * 
-         * Idk why the import thing is being weird but It says it is working now. 
+         * Idk why the import thing is being weird but It says it is working now. Oh Cause I cannot name the file 'HashSet'
          */
 
         HashSet<String> fruits = new HashSet<>();
