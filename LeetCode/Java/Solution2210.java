@@ -30,5 +30,5 @@ public class Solution2210 {
  * Time Complexity: O(n), where n is the length of the input array.
  * Space Complexity: O(1), as no additional space is used that scales with input size.
  * 
- * How can I improve 
+ * 2nd best time complexity solution. 
  */
