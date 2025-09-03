@@ -2,9 +2,9 @@ class Solution3000 {
     public int areaOfMaxDiagonal(int[][] dimensions) {
         double maxDiagonal = 0;
         int maxArea = 0;
-        for (int i = 0; i < dimensions.length; i++) {
-            int length = dimensions[i][0];
-            int width = dimensions[i][1];
+        for (int[] dimension : dimensions) {
+            int length = dimension[0];
+            int width = dimension[1];
             double diagonal = Math.sqrt(length * length + width * width);
             int area = length * width;
             if (diagonal > maxDiagonal) {
