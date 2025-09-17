@@ -1,4 +1,4 @@
-package LeetCode.Java;
+
 
 import java.util.LinkedList;
 import java.util.List;

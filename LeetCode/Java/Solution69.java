@@ -1,4 +1,4 @@
-package LeetCode.Java;
+
 import java.lang.Math;
 public class Solution69 {
     public int mySqrt(int x) {

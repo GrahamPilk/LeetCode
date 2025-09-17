@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution3201 {
     public int maximumLength(int[] nums) {

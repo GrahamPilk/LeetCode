@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution2348 {
     public long zeroFilledSubarray(int[] nums) {

@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution2419 {
     public int longestSubarray(int[] nums) {

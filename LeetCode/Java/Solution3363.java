@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution3363 {
     public int maxCollectedFruits(int[][] fruits) {

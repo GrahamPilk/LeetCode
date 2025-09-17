@@ -1,4 +1,4 @@
-package LeetCode.Java;
+
 
 public class Solution8 {
     public static int myAtoi(String s) {

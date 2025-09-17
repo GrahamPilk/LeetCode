@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution2044 {
     public int countMaxOrSubsets(int[] nums) {

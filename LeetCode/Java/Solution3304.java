@@ -1,4 +1,4 @@
-package LeetCode.Java;
+
 public class Solution3304 {
     public static char kthCharacter(int k) {
         String word = "a";
