@@ -1,4 +1,4 @@
-package LeetCode.Java;
+
 
 public class Solution1290 {
     public int getDecimalValue(ListNode head) {

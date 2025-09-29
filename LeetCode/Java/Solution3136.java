@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution3136 {
     public boolean isValid(String word) {

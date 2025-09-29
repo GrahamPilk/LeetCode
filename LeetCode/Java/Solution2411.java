@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution2411 {
     public int[] smallestSubarrays(int[] nums) {

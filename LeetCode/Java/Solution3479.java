@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution3479 {
     int[] st;

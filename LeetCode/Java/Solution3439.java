@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 class Solution3439 {
     public static int maxFreeTime(int eventTime, int k, int[] startTime, int[] endTime) {

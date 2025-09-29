@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 public class Solution2210 {
     public int countHillValley(int[] nums) {

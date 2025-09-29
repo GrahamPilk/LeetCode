@@ -1,4 +1,3 @@
-package LeetCode.Java;
 
 class Solution3000 {
     public int areaOfMaxDiagonal(int[][] dimensions) {
